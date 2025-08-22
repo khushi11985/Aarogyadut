@@ -1,5 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "./page.module.css";
+import Navbar from "../Component/Navbar";
+//import Service from "../app/Service/page"; // Importing the Service component//
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,8 +22,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Font Awesome CDN */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <Navbar />
+      
         {children}
+        
       </body>
     </html>
   );
